@@ -2,15 +2,15 @@
 
 ## Conventions
 
-1. Use lint e algum tipo de style checker.
-2. Nunca desabilite uma regra de lint arbitrariamente. Se houver alguma incoerência entre a regra e o estilo do projeto, a regra deve ser revisada.
-3. Use nomes descritivos, mesmo que sejam longos.
+1. Use lint and some kind of style checker.
+2. Never arbitrarily disable a lint rule. If there is any inconsistency between the rule and the design style, the rule should be revised.
+3. Use descriptive names, even if they are long.
     
-    Evite abreviações, principalmente se a variável for usada em um contexto amplo. Em contextos curtos *pode* ser aceitável (p. ex. uma função lambda).
+    Avoid abbreviations, especially if the variable is used in a broad context. In short contexts it *may* be acceptable (eg a lambda function).
     
-    Evite ambiguidades.
+    Avoid ambiguities.
     
-    **Pense bem antes de atribuir um nome**.
+    **Think carefully before assigning a name**.
     
     ```jsx
     const c = 0; // 👎
@@ -18,15 +18,15 @@
     ```
     
     ```jsx
-    const admins = usersList.filter(u => u.isAdmin()); // 👍 mas vamos evitar
+    const admins = usersList.filter(u => u.isAdmin()); // 👍 but let's avoid it
     ```
     
     ```jsx
     const projectData = {};
-    const dataProject = {}; // 👎 se estiverem no mesmo contexto
+    const dataProject = {}; // 👎 if they are in the same context
     ```
     
-4. Nomes de variáveis devem ser substantivos, pois representam coisas.
+4. Variable names must be nouns, as they represent things.
     
     ```jsx
     const user = {};
@@ -34,7 +34,7 @@
     const houses = [];
     ```
     
-5. Nomes de funções devem conter verbos, pois representam ações.
+5. Function names must contain verbs as they represent actions.
     
     ```jsx
     function saveFormChanges() {}
@@ -42,22 +42,22 @@
     function createNewTemplate() {}
     ```
     
-6. Funções que retornam valores lógicos em geral podem usar `is` e `has`.
+6. Functions that return logical values in general can use `is` and `has`.
     
     ```jsx
     function isActive() {}
     function hasRole(role) {}
     ```
     
-7. Comentários são raramente necessários. O código deve ser claro e expressivo o suficiente para ser entendido.
-8. Nunca envie "números mágicos" para o repositório.  
+7. Comments are rarely needed. The code must be clear and expressive enough to be understood.
+8. Never submit "magic numbers" to the repository.  
 [Refactoring.com > Replace Magic Literal](https://refactoring.com/catalog/replaceMagicLiteral.html).
-9. Nunca envie código comentado para o repositório.
-10. Remova todo código comentado que encontrar.
-12. **Na ausência de um sistema de Feature Flags**, nunca envie código não usado para o repositório.
-12. **Na ausência de um sistema de Feature Flags**, remova todo código não usado que encontrar.
-13. Linhas de código não devem passar de *100* caracteres (É difícil achar um critério pra definir o número exato que pode ser 72, 80, 120...).
-14. Respeite a indentação.
+9. Never commit commented code to the repository. Use branches.
+10. Remove any commented code you find if you make sure that is wasn't commited by accident.
+12. **In the absence of a Feature Flags system**, never push unused code to the repository as it can confuse your team.
+12. **In the absence of a Feature Flags system**, remove any code that you ensure is unused.
+13. Code lines should not exceed *100* characters (It's hard to find a criterion to define the exact number. It can be 72, 80, 120...).
+14. Respect code indentation.
 
 ## Clean Code Summary
 
@@ -67,35 +67,30 @@
 
 ## Good Practices
 
-1. Evite repetições mas tome cuidado com acoplamento.  
+1. Avoid repetitions but be careful with coupling.  
 [DRY is about Knowledge @verraes.net](https://verraes.net/2014/08/dry-is-about-knowledge/)
-2. Divida o código em funções curtas, sempre focadas em uma única ação, mesmo que essas funções sejam usadas em apenas um lugar.
-Muitos laços e condições em uma função, são um sintoma de que ela precisa ser dividida.  
+2. Split the code into short functions, always focused on a single action, even if these functions are only used in one place. Too many loops and conditions in a function is a symptom that it needs to be split.  
 [Cyclomatic complexity @wikipedia.org](https://en.wikipedia.org/wiki/Cyclomatic_complexity)
-3. Sempre que possível, implemente funções puras, sem efeitos colaterais.
-Efeitos colaterais tornam o código extremamente difícil de entender, testar e debugar.  
+3. Whenever possible, implement pure functions without side effects. Side effects make code extremely difficult to understand, test, and debug.  
 [Pure vs Impure Functions @dev.to/sanspanic](https://dev.to/sanspanic/pure-vs-impure-functions-50aj)
-4. Muitos parâmetros em uma função sinalizam que a função foi mal concebida e necessita refatoração.  
+4. Too many parameters in a function (or props in a component) is a signal that the function is poorly designed and needs refactoring.  
 [▶️ Clean Code III: Functions - Robert C. Martin](https://vimeo.com/channels/1111213/12643301)
-5. Evite classes abstratas. Favoreça composição ao invés de herança.  
+5. Avoid abstract classes. Favor composition over inheritance.  
 [Composition vs. Inheritance: How to Choose? @thoughtworks.com](https://www.thoughtworks.com/insights/blog/composition-vs-inheritance-how-choose)
-6. Refatore o código novo antes de enviar para o repositório.  
+6. Refactor your new code before pushing it to the repository.  
 [refactoring.com/catalog/](https://refactoring.com/catalog/)  
 [refactoring.guru/refactoring](https://refactoring.guru/refactoring)  
 [sourcemaking.com/refactoring](https://sourcemaking.com/refactoring)
-7. Procure sempre deixar o código melhor do que você encontrou.  
-8. Pense bastante sobre a tarefa a ser executada, sobre o problema a ser resolvido.  
+7. Always try to leave the code better than you found it.  
+8. Think hard about the task to be performed, the problem to be solved.  
 [▶️ Hammock Driven Development - Rich Hickey](https://www.youtube.com/watch?v=f84n5oFoZBc)
-9. Conte com a mudança e pense sempre no futuro.
-    
-    > Se outra pessoa precisar dar manutenção nesse código daqui a seis meses, vai conseguir entender o que foi feito e alterar o código com facilidade?
-10. O que torna um software fácil de mudar é sua estrutura. Estrutura é mais importante do que comportamento.
-
-    Software deve ser *soft*.  
+9. Count on change and always think about the future.  
+    > If someone else needs to maintain this code six months from now, will they be able to understand what they did and change the code easily?
+10. What makes software easy to change is its structure. Structure is more important than behavior.  
+    Software must be *soft*.  
     [What is the value of software development? @medium.com/@mvidaurre](https://medium.com/@mvidaurre/what-is-the-value-of-software-development-c90ac18b786d)  
-    [Clean Architecture — Two values @medium.com/@stoltmanjan](https://medium.com/@stoltmanjan/clean-architecture-two-values-f93f399de4e)
-    
-    > Um software funcional que não pode ser modificado tende a ficar obsoleto e desaparecer. Um software aberto a mudanças, ainda que defeituoso, pode voltar a funcionar.
+    [Clean Architecture — Two values @medium.com/@stoltmanjan](https://medium.com/@stoltmanjan/clean-architecture-two-values-f93f399de4e)  
+    > Working software that cannot be modified tends to become obsolete and disappear. Software open to change, even if defective, can work again.
 
 ## S.O.L.I.D. Principles
 
